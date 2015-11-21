@@ -3,6 +3,10 @@
 
 ## Write a short comment describing this function
 
+# This function takes an input matrix, ASSUMING IT IS 
+# INVERTIBLE, and returns a list of functions that may be 
+# applied to the given matrix.
+#
 # NOTE: I understand that one does not need to provide
 #       a return statement in R and that functions can be
 #       one line.  However, I prefer to be consistent with
@@ -15,12 +19,14 @@ makeCacheMatrix <- function(x = matrix()) {
   #          forces reinitialization + caching of 
   #          of inverse member matrix
   setMatrix <- function(in_matrix) {
+    message("Putting input matrix into cache")
     x <<- in_matrix
     inv_mat <<- NULL
   }
   
   # Getter - Returns cached original matrix
   getMatrix <- function() {
+    message("Returning input matrix")
     return (x)
   }
   
@@ -32,11 +38,13 @@ makeCacheMatrix <- function(x = matrix()) {
   # or we would have a conditional block in here to handle the
   # potential use case.
   setInverse <- function(solve) {
+    message("Applying solve method")
     inv_mat <<- solve
   }
   
   # Getter - Returns inverted matrix
   getInverse <- function() {
+    message("Getting the inverse")
     return (inv_mat)
   }
   
